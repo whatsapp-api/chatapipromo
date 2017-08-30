@@ -20,7 +20,7 @@
     <!-- Jumbotron -->
     <div class="jumbotron">
         <h1>WhatsApp API</h1>
-        <p class="lead">Доступ к закрытому API Whatsapp для отправки и приема сообщений</p>
+        <p class="lead">Доступ к закрытому API Whatsapp<br> для отправки и приема сообщений</p>
     </div>
 
     <div class="row faq">
@@ -28,23 +28,30 @@
             <h2>Вопросы и ответы</h2>
 
             <div class="faq__question">Как работает API?</div>
-            <div class="faq__answer">Сервис подключает Ваш аккаунт через закрытое API Whatsapp WEB. При этом не возникнет
+            <div class="faq__answer">Сервис подключает Ваш аккаунт через закрытое API Whatsapp WEB. При этом не
+                возникнет
                 проблем с баном как в библиотеках от mgp25 и WhatsAPI.
+            </div>
+
+            <div class="faq__question">От чьего номера будут отправляться сообщения?</div>
+            <div class="faq__answer">
+                От вашего. И ответы будут приходить на ваш WhatsApp.
+            </div>
+
+            <div class="faq__question">Можно ли использовать WhatsApp на телефоне?</div>
+            <div class="faq__answer">
+                Да, можно. Вы только не сможете использовать Whatsapp WEB на компьютере.
             </div>
 
             <div class="faq__question">Можно ли рассылать спам?</div>
             <div class="faq__answer">Нет. Сообщения на номера телефонов не из списка контактов
-                рассылать можно, но ваш аккаунт улетит в бан whatsapp если вы получите 15-20 нажатий на кнопку "спам".
+                рассылать можно, но ваш аккаунт улетит в бан WhatsApp если вы получите 15-20 нажатий на кнопку "спам".
             </div>
 
-            <div class="faq__question">Можно ли использовать WhatsApp на телефоне?</div>
-            <div class="faq__answer">Да, можно. Вы только не сможете использовать Whatsapp WEB на компьютере.
-            </div>
-
-            <h2>Отправка сообщений</h2>
+            <h3>Отправка сообщений</h3>
             <p>
                 Отправить сообщение на любой номер телефона, подключенный к Whatsapp или в групповой чат.
-                <a href="docs.html#post_message" target="_blank">Документация</a>
+                <br><a href="docs.html#post_message" target="_blank">Документация</a>
             </p>
 
             <ul class="nav nav-pills">
@@ -105,10 +112,10 @@ $.ajax(url, {
 });</code></pre>
                 </div>
             </div>
-            <h2>Чтение истории сообщений</h2>
+            <h3>Чтение истории сообщений</h3>
             <p>
                 История переписки в личных и групповых чатах в том числе до подключения API.
-                <a href="docs.html#get_messages" target="_blank">Документация</a>
+                <br><a href="docs.html#get_messages" target="_blank">Документация</a>
             </p>
             <ul class="nav nav-pills">
                 <li class="active">
@@ -156,8 +163,11 @@ $.get(url, function (data) { // Выполним GET запрос на URL
 });</code></pre>
                 </div>
             </div>
-            <h2>Webhook уведомления о новых сообщениях</h2>
-            <p>Получайте уведомления о личных и групповых сообщениях через входящие http запросы.</p>
+            <h3>Webhook уведомления о новых сообщениях</h3>
+            <p>
+                Получайте уведомления о личных и групповых сообщениях через входящие http запросы.
+                <br><a href="docs.html#post_webhook" target="_blank">Документация</a>
+            </p>
             <ul class="nav nav-pills">
                 <li class="active">
                     <a href="#example_post_webhook_php" data-toggle="tab">PHP</a>
@@ -197,13 +207,43 @@ app.post('/got_whatsapp_messages', function (req, res) {
 app.listen(80);</code></pre>
                 </div>
             </div>
+            <h2>Цена и подключение</h2>
+            <p>Подключение нового аккаунта WhatsApp занимает 1 час.</p>
+            <ol>
+                <li>Оплатите досступ к сервису или купите демо на 2 недели</li>
+                <li>Получите токен и API URL по email</li>
+                <li>Авторизуйтесь согласно документации</li>
+                <li>Отправляйте и принимайте сообщения как в примерах выше</li>
+            </ol>
+            <div class="row buy">
+                <div class="col-lg-6">
+                    <a class="btn btn-primary" href="demo.html">Купить демо за 195 руб.</a>
+
+                    <br>Полный функционал на 2 недели
+                    <br>Если Вы не уверены что нужен WhatsApp API
+                </div>
+                <div class="col-lg-6">
+                    <a class="btn btn-primary" href="buy.html">Купить полную версию</a>
+                    <br>900 руб./месяц, техподдержка включена
+                    <br>Если вы уверены что вам нужен WhatsApp API
+                </div>
+            </div>
+                <p>
+
+                </p>
+                <p>
+                </p>
+            <p>Если Вам нужно более 5 аккаунтов, то для Вас совсем другие тарифы. Напишите на почту
+                <a href="mailto:sale@chat-api.com" target="_blank">sale@chat-api.com</a>, Илье
+                <a href="https://vk.me/solohin_ilya" target="_blank">ВК</a> или в
+                <a href="https://t.me/solohin_ilya" target="_blank">Телеграм</a>.</p>
         </div>
     </div>
 
     <!-- Site footer -->
     <footer class="footer">
         <p></p>
-        <p>Сервис не имеет формальных тоношений с WhatsApp, ватсап, воцап, вотсапп и вацап.<br/>&copy; chat-api.com 2017</p>
+        <p>API шлюз интеграции WhatsApp, ватсап, воцап, вотсапп и вацап.<br/>&copy; chat-api.com 2017</p>
     </footer>
 
 </div> <!-- /container -->

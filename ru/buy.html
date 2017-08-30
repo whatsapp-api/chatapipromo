@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WhatsApp API шлюз для отправки сообщений, рассылок и ботов на PHP, JavaScript и Python</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+
+<div class="container">
+
+    <div class="masthead">
+        <h3 class="text-muted">chat-api.com</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Оплата WhatsApp API</h2>
+            <p>
+                Условия:
+            </p>
+            <ol>
+                <li>Доступ предоставляется за 900 рублей/месяц;</li>
+                <li>Заплатите сразу на 12 месяцев забудьте об оплате на ближайший год;</li>
+                <li>API URL и токен будут отправлены на указанную в платеже почту;</li>
+                <li>Не стоит спамить, иначе быстро улетите в бан от WhatsApp;</li>
+                <li>Если что-то не получается, смело обращайтесь <a href="contact.html">по указанным контактам</a>.</li>
+            </ol>
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="months" value="1" checked>
+                    1 месяц
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="months" value="3">
+                    3 месяца
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="months" value="6">
+                    6 месяцев
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="months" value="12">
+                    12 месяцев
+                </label>
+            </div>
+<!--TODO установить кол-во месяцев и сумму платежа в назначении и на кнопке-->
+            <a class="btn btn-primary" target="_blank" id="buy_btn"
+               data-href-template="https://money.yandex.ru/quickpay/confirm.xml?receiver=410012570828974&formcomment=chat-api.com&short-dest=&quickpay-form=shop&targets=Доступ+к+API+на+{months}+мес.&paymentType=AC&need-email=true&sum={price}"
+               data-text-template="Оплатить {months} мес. за {price} руб."
+               href="https://money.yandex.ru/quickpay/confirm.xml?receiver=410012570828974&formcomment=chat-api.com&short-dest=&quickpay-form=shop&targets=Доступ+к+API+на+1+мес.&paymentType=AC&need-email=true&sum=900">
+                Оплатить 1 мес. за 900 руб.
+            </a>
+        </div>
+    </div>
+
+    <!-- Site footer -->
+    <footer class="footer">
+        <p></p>
+        <p>API шлюз интеграции WhatsApp, ватсап, воцап, вотсапп и вацап.<br/>&copy; chat-api.com 2017</p>
+    </footer>
+
+</div> <!-- /container -->
+
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/js/buy.js"></script>
+</body>
+</html>
