@@ -2,9 +2,177 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>WhatsApp API шлюз для отправки сообщений, рассылок и ботов на PHP, JavaScript и Python</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/lib/prism/prism.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-Hello, world!
+
+
+<div class="container">
+
+    <div class="masthead">
+        <h3 class="text-muted">chat-api.com</h3>
+    </div>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1>WhatsApp API</h1>
+        <p class="lead">Доступ к закрытому API Whatsapp для отправки и приема сообщений</p>
+    </div>
+
+    <div class="row faq">
+        <div class="col-md-12">
+            <h2>Вопросы и ответы</h2>
+
+            <div class="faq__question">Как работает API?</div>
+            <div class="faq__answer">Сервис подключат Ваш аккаунт через закрытое API Whatsapp WEB. При этом не возникнет
+                проблем с баном как в библиотеках от mgp25 и WhatsAPI.
+            </div>
+
+            <div class="faq__question">Можно ли рассылать спам?</div>
+            <div class="faq__answer">Нет. Сообщения на номера телефонов не из списка контактов
+                рассылать можно, но ваш аккаунт улетит в бан whatsapp если вы получите 15-20 нажатий на кнопку "спам".
+            </div>
+
+            <div class="faq__question">Можно ли использовать WhatsApp на телефоне?</div>
+            <div class="faq__answer">Да, можно. Вы только не сможете использовать Whatsapp WEB на компьютере.
+            </div>
+
+            <h2>Отправка сообщений</h2>
+            <p>
+                Отправить сообщение на любой номер телефона, подключенный к Whatsapp или в групповой чат.
+                <a href="docs.html#post_message" target="_blank">Документация</a>
+            </p>
+
+            <ul class="nav nav-pills">
+                <li class="active">
+                    <a href="#example_send_php" data-toggle="tab">PHP</a>
+                </li>
+                <li>
+                    <a href="#example_send_node" data-toggle="tab">Node.js</a>
+                </li>
+                <li>
+                    <a href="#example_send_jquery" data-toggle="tab">JQuery</a>
+                </li>
+            </ul>
+
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="example_send_php">
+                    <pre><code class="language-php">$data = [
+    phone => '79995253422', // Телефон получателя
+    body => 'Привет, Андрей!', // Сообщение
+];
+$json = json_encode($data); // Закодируем данные в JSON
+$url = 'https://foo.chat-api.com/message?token=83763g87x'; // URL для запроса POST /message
+// Сформируем контекст обычного POST-запроса
+$options = stream_context_create(['http' => [
+        'method'  => 'POST',
+        'header'  => 'Content-type: application/json',
+        'content' => $json
+    ]
+]);
+// Отправим запрос
+$result = file_get_contents($url, false, $context);</code></pre>
+                </div>
+                <div class="tab-pane" id="example_send_node">
+                    <pre><code class="language-javascript">var request = require('request'); //npm install request
+var url = 'https://foo.chat-api.com/message?token=83763g87x'; // URL для запроса POST /message
+var data = {
+    phone: '79995253422', // Телефон получателя
+    body: 'Привет, Андрей!', // Сообщение
+};
+// Отправим запрос
+request({
+    url: url,
+    method: "POST",
+    json: data
+});</code></pre>
+                </div>
+                <div class="tab-pane" id="example_send_jquery">
+                    <pre><code class="language-javascript">var url = 'https://foo.chat-api.com/message?token=83763g87x'; // URL для запроса POST /message
+var data = {
+    phone: '79995253422', // Телефон получателя
+    body: 'Привет, Андрей!', // Сообщение
+};
+// Отправим запрос
+$.ajax(url, {
+    data : JSON.stringify(data),
+    contentType : 'application/json',
+    type : 'POST'
+});</code></pre>
+                </div>
+            </div>
+            <h2>Чтение истории сообщений</h2>
+            <p>
+                История переписки в личных и групповых чатах в том числе до подключения API.
+                <a href="docs.html#get_messages" target="_blank">Документация</a>
+            </p>
+            <ul class="nav nav-pills">
+                <li class="active">
+                    <a href="#example_get_messages_php" data-toggle="tab">PHP</a>
+                </li>
+                <li>
+                    <a href="#example_get_messages_node" data-toggle="tab">Node.js</a>
+                </li>
+                <li>
+                    <a href="#example_get_messages_jquery" data-toggle="tab">JQuery</a>
+                </li>
+            </ul>
+
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="example_get_messages_php">
+                    <pre><code class="language-php">$url = 'https://foo.chat-api.com/messages?token=83763g87x'; // URL для запроса GET /messages
+$result = file_get_contents($url); // Отправим запрос
+$data = json_decode($result); // Разберем полученный JSON в массив
+foreach($data['messages'] as $message){ // Распечатаем каждое сообщение
+    echo "Отправитель:".$message['author']."&ltbr>";
+    echo "Сообщение: ".$message['body']."&ltbr>";
+}</code></pre>
+                </div>
+                <div class="tab-pane" id="example_get_messages_node">
+                    <pre><code class="language-javascript">var request = require('request');// npm install request
+var url = 'https://foo.chat-api.com/messages?token=83763g87x';
+request(url, function (error, response, body) { // Выполним GET запрос на URL
+    if (error) return console.error('HTTP Error', error);
+    // Декодируем ответ
+    var data = JSON.parse(body);
+    // Для каждого сообщения
+    for (var i = 0; i < data.messages.length; i++) {
+        var message = data.messages[i];
+        console.log(message.author + ': ' + message.body); //Выведем его в консоль
+    }
+});</code></pre>
+                </div>
+                <div class="tab-pane" id="example_get_messages_jquery">
+                    <pre><code class="language-javascript">var url = 'https://foo.chat-api.com/messages?token=83763g87x';
+$.get(url, function (data) { // Выполним GET запрос на URL
+    for (var i = 0; i < data.messages.length; i++) { // Для каждого сообщения
+        var message = data.messages[i];
+        console.log(message.author + ': ' + message.body); //Выведем его в консоль
+    }
+});</code></pre>
+                </div>
+            </div>
+            <h2>Webhook уведомления о новых сообщениях</h2>
+            <p>Получайте уведомления о личных и групповых сообщениях через webhook.</p>
+            <h2>Проверка статуса и авторизация</h2>
+            <p>Авторизуйтесь один раз сфотографировав QR код и держите телефон подключенным к интернету.</p>
+        </div>
+    </div>
+
+    <!-- Site footer -->
+    <footer class="footer">
+        <p></p>
+        <p>Сервис не имеет формальных тоношений с WhatsApp, ватсап и вацап<br/>&copy; chat-api.com 2017</p>
+    </footer>
+
+</div> <!-- /container -->
+
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/lib/prism/prism.js"></script>
 </body>
 </html>

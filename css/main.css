@@ -1,0 +1,16 @@
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+p  {
+    font-size: 110%;
+}
+
+.container{
+    max-width: 780px;
+}
+
+.faq__question{
+    font-weight: bold;
+    padding-top: 10px;
+}
