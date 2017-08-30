@@ -28,7 +28,7 @@
             <h2>Вопросы и ответы</h2>
 
             <div class="faq__question">Как работает API?</div>
-            <div class="faq__answer">Сервис подключат Ваш аккаунт через закрытое API Whatsapp WEB. При этом не возникнет
+            <div class="faq__answer">Сервис подключает Ваш аккаунт через закрытое API Whatsapp WEB. При этом не возникнет
                 проблем с баном как в библиотеках от mgp25 и WhatsAPI.
             </div>
 
@@ -157,16 +157,53 @@ $.get(url, function (data) { // Выполним GET запрос на URL
                 </div>
             </div>
             <h2>Webhook уведомления о новых сообщениях</h2>
-            <p>Получайте уведомления о личных и групповых сообщениях через webhook.</p>
-            <h2>Проверка статуса и авторизация</h2>
-            <p>Авторизуйтесь один раз сфотографировав QR код и держите телефон подключенным к интернету.</p>
+            <p>Получайте уведомления о личных и групповых сообщениях через входящие http запросы.</p>
+            <ul class="nav nav-pills">
+                <li class="active">
+                    <a href="#example_post_webhook_php" data-toggle="tab">PHP</a>
+                </li>
+                <li>
+                    <a href="#example_post_webhook_node" data-toggle="tab">Node.js</a>
+                </li>
+            </ul>
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="example_post_webhook_php">
+                    <pre><code class="language-php">// Сначала установите webhook согласно документации на http://ваш.сайт/incoming_messasge.php
+
+// Декодируем пришедший по webhook JSON
+$data = json_decode(file_get_contents('php://input'), true);
+foreach($data['messages'] as $message){ // Распечатаем каждое сообщение
+    echo "Отправитель:".$message['author']."&ltbr>";
+    echo "Сообщение: ".$message['body']."&ltbr>";
+}</code></pre>
+                </div>
+                <div class="tab-pane" id="example_post_webhook_node">
+                    <pre><code class="language-javascript">// Сначала установите webhook согласно документации на http://ваш.сайт/got_whatsapp_messages
+// Подключим Express JS и Body Parser для того чтобы принять JSON POST
+var app = require('express')();
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+// Теперь напишем обработик для
+app.post('/got_whatsapp_messages', function (req, res) {
+	var data = req.body; // Получили новые сообщения в body
+    for (var i = 0; i < data.messages.length; i++) { // Для каждого сообщения
+        var message = data.messages[i];
+        console.log(message.author + ': ' + message.body); //Выведем его в консоль
+    }
+    res.send('Ok'); //Ответим хоть что-нибудь, лишь бы код 200 был
+});
+
+app.listen(80);</code></pre>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Site footer -->
     <footer class="footer">
         <p></p>
-        <p>Сервис не имеет формальных тоношений с WhatsApp, ватсап и вацап<br/>&copy; chat-api.com 2017</p>
+        <p>Сервис не имеет формальных тоношений с WhatsApp, ватсап, воцап, вотсапп и вацап.<br/>&copy; chat-api.com 2017</p>
     </footer>
 
 </div> <!-- /container -->

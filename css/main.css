@@ -2,15 +2,22 @@
     text-align: center;
     background-color: transparent;
 }
-p  {
+
+p {
     font-size: 110%;
 }
 
-.container{
-    max-width: 780px;
+.container {
+    width: 95%;
 }
 
-.faq__question{
+@media (min-width: 992px) {
+    .container {
+        width: 780px;
+    }
+}
+
+.faq__question {
     font-weight: bold;
     padding-top: 10px;
 }
