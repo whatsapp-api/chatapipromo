@@ -83,7 +83,7 @@
 
             <p>Прямая ссылка на QR-код в виде изображения, а не base64.</p>
 
-            <h3>POST /message</h3>
+            <h3 id="post_message">POST /message</h3>
 
             <p>Отправка сообщения в новый или существующий чат. Сообщение будет добавлено в очередь на отправку и
                 доставлено даже если телефон отключен от интернета или авторизация не пройдена.</p>
@@ -134,7 +134,7 @@
     "message": "ok"
 }</code></pre>
 
-            <h3>GET /messages</h3>
+            <h3 id="get_messages">GET /messages</h3>
 
             <p>
                 Получить список сообщений. Для получения только новых сообщений передайте параметр lastMessageNumber из
@@ -175,7 +175,7 @@
     "lastMessageNumber": 100
 }</code></pre>
 
-            <h3>POST /webhook</h3>
+            <h3 id="post_webhook">POST /webhook</h3>
 
             <p>Устанавливает URL для получения webhook уведомлений о новых сообщениях.</p>
             <p>Параметры:</p>
@@ -246,6 +246,6 @@
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/lib/prism/prism.js"></script>
-<script src="/js/buy.js"></script>
+<script src="/js/docs.js"></script>
 </body>
 </html>
