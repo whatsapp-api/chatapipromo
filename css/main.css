@@ -34,3 +34,15 @@ h3 {
     margin-bottom: 20px;
 
 }
+
+.changeLanguage{
+    width: 150px;
+    height: 150px;
+    background-image: url(/img/20170831_233230.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: left;
+    margin-left: -160px;
+    margin-top: -109px;
+}
