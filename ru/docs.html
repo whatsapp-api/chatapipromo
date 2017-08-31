@@ -28,8 +28,12 @@
     <div class="row">
         <div class="col-lg-12">
             <h2>Документация</h2>
-            <p>REST API позволяет принимать и отправлять сообщения через аккаунт WhatsApp. Все ответы и POST запросы - в
-                формате JSON.</p>
+            <p>REST API позволяет принимать и отправлять сообщения через аккаунт WhatsApp.</p>
+
+            <p>
+                Параметры в GET запросах передавайте чеерз query string. Параметры в POST запросах &mdash; через
+                JSON-encoded тело запроса. Токен авторизации всегда передается в query string (?token=xxxxxx).
+            </p>
 
             <p>К каждому запросу необходимо прибавить токен в GET параметре token.</p>
 
@@ -139,53 +143,95 @@
 
             <p>Параметры:</p>
 
+            <table class="table table-bordered">
+                <tr>
+                    <td>lastMessageNumber</td>
+                    <td>Параметр lastMessageNumber из предыдущего запроса</td>
+                </tr>
+            </table>
 
-            Пример ответа:
+            <p>Пример ответа:</p>
 
-            // GET /messages?lastMessageNumber=99:
-            {
-            "messages:" [{
-            //уникальный ID
-            "id": "false_79500281111@c.us_DF38E6A25B42CC8CCE57EC40F",
-            //текст
-            "body": "Окей.",
-            //1 - исходящее, 2 - входящее
-            "fromMe": 0,
-            //ID автора сообщения, полезно для групп
-            "author": "79500281111@c.us",
-            //время отправления, UTC
-            "time": "2017-08-09T07:52:35.000Z",
-            //ID чата
-            "chatId": "79500281111@c.us",
-            //порядковый номер сообщения в базе данных
-            "messageNumber": 100
-            }],
-            "lastMessageNumber": 100
-            }
+            <pre><code class="language-javascript">// GET /messages?lastMessageNumber=99:
+{
+    "messages:" [{
+        //уникальный ID
+        "id": "false_79500281111@c.us_DF38E6A25B42CC8CCE57EC40F",
+        //текст
+        "body": "Окей.",
+        //true - исходящее, false - входящее
+        "fromMe": true,
+        //ID автора сообщения, полезно для групп
+        "author": "79500281111@c.us",
+        //время отправления, unix timestamp
+        "time": 1504208593,
+        //ID чата
+        "chatId": "79500281111@c.us",
+        //порядковый номер сообщения в базе данных
+        "messageNumber": 100
+    }, {
+        //...
+    }],
+    "lastMessageNumber": 100
+}</code></pre>
 
-            POST /webhook
+            <h3>POST /webhook</h3>
 
-            Устанавливает URL для получения webhook уведомлений о новых сообщениях.
-            Параметры:
+            <p>Устанавливает URL для получения webhook уведомлений о новых сообщениях.</p>
+            <p>Параметры:</p>
 
+            <table class="table table-bordered">
+                <tr>
+                    <td>webhookUrl</td>
+                    <td>Http или https URL для получения оповещений. Для тестирования рекомендуем использовать
+                        requestb.in.
+                    </td>
+                </tr>
+            </table>
 
-            Пример ответа:
+            <p>Пример ответа:</p>
 
-            {
-            "set": true,
-            "webhookUrl": "https://requestb.in/1f9aj261"
-            }
+            <pre><code class="language-javascript">{
+    "set": true,
+    "webhookUrl": "https://requestb.in/1f9aj261"
+}</code></pre>
 
-            GET /webhook
+            <p>
+                Пример webhook уведомления:
+            </p>
 
-            Возвращает текущий webhook url.
+            <pre><code class="language-javascript">
+{ // Ответ такой же как и у GET /messages, передается в формате JSON в body запроса
+    "messages:" [{ // сообщений может быть несколько
+        //уникальный ID
+        "id": "false_79500281111@c.us_DF38E6A25B42CC8CCE57EC40F",
+        //текст
+        "body": "Окей.",
+        //true - исходящее, false - входящее
+        "fromMe": true,
+        //ID автора сообщения, полезно для групп
+        "author": "79500281111@c.us",
+        //время отправления, unix timestamp
+        "time": 1504208593,
+        //ID чата
+        "chatId": "79500281111@c.us",
+        //порядковый номер сообщения в базе данных
+        "messageNumber": 100
+    }, {
+        //...
+    }]
+}</code></pre>
 
-            Пример ответа:
+            <h3>GET /webhook</h3>
 
-            {
-            "set": true,
-            "webhookUrl": "https://requestb.in/1f9aj261"
-            }
+            <p>Возвращает текущий webhook url.</p>
+
+            <p>Пример ответа:</p>
+
+            <pre><code class="language-javascript">{
+    "set": true,
+    "webhookUrl": "https://requestb.in/1f9aj261"
+}</code></pre>
         </div>
     </div>
 
