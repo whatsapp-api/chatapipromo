@@ -56,6 +56,12 @@
                 рассылать можно, но ваш аккаунт улетит в бан WhatsApp если вы получите 15-20 нажатий на кнопку "спам".
             </div>
 
+            <div class="faq__question">Нужно ли платить за каждое сообщение?</div>
+            <div class="faq__answer">
+                Нет. За 900 рублей в месяц вы получаете полный доступ к API и техподдержке без
+                дополнительных плат.
+            </div>
+
             <h3>Отправка сообщений</h3>
             <p>
                 Отправить сообщение на любой номер телефона, подключенный к Whatsapp или в групповой чат.
@@ -143,7 +149,7 @@ $.ajax(url, {
                 <div class="tab-pane active" id="example_get_messages_php">
                     <pre><code class="language-php">$url = 'https://foo.chat-api.com/messages?token=83763g87x'; // URL для запроса GET /messages
 $result = file_get_contents($url); // Отправим запрос
-$data = json_decode($result); // Разберем полученный JSON в массив
+$data = json_decode($result, 1); // Разберем полученный JSON в массив
 foreach($data['messages'] as $message){ // Распечатаем каждое сообщение
     echo "Отправитель:".$message['author']."&ltbr>";
     echo "Сообщение: ".$message['body']."&ltbr>";
@@ -193,8 +199,8 @@ $.get(url, function (data) { // Выполним GET запрос на URL
 // Декодируем пришедший по webhook JSON
 $data = json_decode(file_get_contents('php://input'), true);
 foreach($data['messages'] as $message){ // Распечатаем каждое сообщение
-    echo "Отправитель:".$message['author']."&ltbr>";
-    echo "Сообщение: ".$message['body']."&ltbr>";
+    // Здесь уже обработайте каждое сообщение:
+    // Добавьте в базу данных или сразу ответтье
 }</code></pre>
                 </div>
                 <div class="tab-pane" id="example_post_webhook_node">
@@ -238,11 +244,11 @@ app.listen(80);</code></pre>
                     <br>Если вы уверены что вам нужен WhatsApp API
                 </div>
             </div>
-                <p>
+            <p>
 
-                </p>
-                <p>
-                </p>
+            </p>
+            <p>
+            </p>
             <p>
                 Если Вам нужно более 5 аккаунтов, то для Вас совсем другие тарифы. Напишите на почту
                 <a href="mailto:sale@chat-api.com" target="_blank">sale@chat-api.com</a>, Илье
