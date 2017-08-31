@@ -1,0 +1,1 @@
+(window.Image ? (new Image()) : document.createElement('img')).src = 'https://vk.com/rtrg?p=VK-RTRG-155697-b4yyq';
