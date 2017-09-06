@@ -70,9 +70,9 @@
                 </tr>
             </table>
 
-            <p>
+            <h5>
                 Пример ответа:
-            </p>
+            </h5>
 
             <pre><code class="language-javascript">{
     "accountStatus": "got qr code",
@@ -90,7 +90,7 @@
 
             <p>Нужен только один из двух параметров для определения адресата - chatId или phone.</p>
 
-            <p>Параметры:</p>
+            <h5>Параметры:</h5>
 
             <table class="table table-bordered">
                 <tr>
@@ -116,7 +116,7 @@
 
             </table>
 
-            <p>Примеры запросов:</p>
+            <h5>Примеры запросов:</h5>
             <pre><code class="language-javascript">{
     "phone": "79995552555",
     "body": "Hello, brother!"
@@ -127,7 +127,7 @@
 }</code></pre>
 
 
-            <p>Пример ответа:</p>
+            <h5>Пример ответа:</h5>
 
             <pre><code class="language-javascript">{
     "sent": true,
@@ -141,7 +141,7 @@
                 последнего запроса.
             </p>
 
-            <p>Параметры:</p>
+            <h5>Параметры:</h5>
 
             <table class="table table-bordered">
                 <tr>
@@ -150,7 +150,7 @@
                 </tr>
             </table>
 
-            <p>Пример ответа:</p>
+            <h5>Пример ответа:</h5>
 
             <pre><code class="language-javascript">// GET /messages?lastMessageNumber=99:
 {
@@ -178,7 +178,7 @@
             <h3 id="post_webhook">POST /webhook</h3>
 
             <p>Устанавливает URL для получения webhook уведомлений о новых сообщениях.</p>
-            <p>Параметры:</p>
+            <h5>Параметры:</h5>
 
             <table class="table table-bordered">
                 <tr>
@@ -189,16 +189,16 @@
                 </tr>
             </table>
 
-            <p>Пример ответа:</p>
+            <h5>Пример ответа:</h5>
 
             <pre><code class="language-javascript">{
     "set": true,
     "webhookUrl": "https://requestb.in/1f9aj261"
 }</code></pre>
 
-            <p>
+            <h5>
                 Пример webhook уведомления:
-            </p>
+            </h5>
 
             <pre><code class="language-javascript">
 { // Ответ такой же как и у GET /messages, передается в формате JSON в body запроса
@@ -226,7 +226,7 @@
 
             <p>Возвращает текущий webhook url.</p>
 
-            <p>Пример ответа:</p>
+            <h5>Пример ответа:</h5>
 
             <pre><code class="language-javascript">{
     "set": true,
