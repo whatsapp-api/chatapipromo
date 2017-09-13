@@ -84,8 +84,8 @@
             <div class="tab-content clearfix">
                 <div class="tab-pane active" id="example_send_php">
                     <pre><code class="language-php">$data = [
-    phone => '79995253422', // Телефон получателя
-    body => 'Привет, Андрей!', // Сообщение
+    'phone' => '79995253422', // Телефон получателя
+    'body' => 'Привет, Андрей!', // Сообщение
 ];
 $json = json_encode($data); // Закодируем данные в JSON
 $url = 'https://foo.chat-api.com/message?token=83763g87x'; // URL для запроса POST /message
@@ -97,7 +97,7 @@ $options = stream_context_create(['http' => [
     ]
 ]);
 // Отправим запрос
-$result = file_get_contents($url, false, $context);</code></pre>
+$result = file_get_contents($url, false, $options);</code></pre>
                 </div>
                 <div class="tab-pane" id="example_send_node">
                     <pre><code class="language-javascript">var request = require('request'); //npm install request
