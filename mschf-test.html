@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>
+        MSCHF test
+    </title>
+</head>
+<body>
+<div id="container">
+    Press any key or combination
+</div>
+<script>
+    const pressed = {};
+    window.onkeydown = function (e) {
+        pressed[e.keyCode] = true;
+        draw();
+    };
+    window.onkeyup = function (e) {
+        delete pressed[e.keyCode];
+        draw();
+    };
+    const draw = function () {
+        const keys = Object.keys(pressed).map(String.fromCharCode);
+
+        const text = (keys.length > 0)
+            ? keys.join(',')
+            : 'Press any key combination';
+        document.getElementById('container').innerHTML = text;
+        console.log(text);
+    }
+</script>
+</body>
+</html>
