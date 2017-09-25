@@ -24,11 +24,14 @@
         draw();
     };
     const draw = function () {
-        const keys = Object.keys(pressed).map(String.fromCharCode);
+        const keys = Object.keys(pressed).map(ch=>String.fromCharCode(ch));
 
         const text = (keys.length > 0)
             ? keys.join(',')
             : 'Press any key combination';
+
+        console.log(Object.keys(pressed));
+
         document.getElementById('container').innerHTML = text;
         console.log(text);
     }
