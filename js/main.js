@@ -25,3 +25,5 @@
         d.addEventListener("DOMContentLoaded", f, false);
     } else { f(); }
 })(document, window, "yandex_metrika_callbacks");
+
+hljs&&hljs.initHighlightingOnLoad();

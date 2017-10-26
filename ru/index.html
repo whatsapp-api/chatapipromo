@@ -3,71 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>WhatsApp API шлюз для отправки сообщений, рассылок и ботов на PHP, JavaScript и Python</title>
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
-    <!--<link rel="stylesheet" href="/lib/prism/prism.css">-->
+    <link rel="stylesheet" href="/lib/highlight/styles/monokai-sublime.css">
     <link rel="stylesheet" href="/css/main.css?v=3">
 </head>
 <body>
 
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Chat API</a>
+        </div>
 
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="./" class="active">WhatsApp API</a></li>
+                <li><a href="demo.html">Демо</a></li>
+                <li><a href="buy.html">Купить</a></li>
+                <li><a href="docs.html">Документация</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="jumbotron">
+    <h1>WhatsApp API</h1>
+    <p class="lead">API для интеграции с WhatsApp. Прием и отправка сообщений.</p>
+</div>
 <div class="container">
-
-    <div class="masthead">
-        <h3 class="text-muted">chat-api.com</h3>
-    </div>
-
-    <ul class="nav nav-pills">
-        <li role="presentation"><a href="./">WhatsApp API</a></li>
-        <li role="presentation"><a href="demo.html">Демо</a></li>
-        <li role="presentation"><a href="buy.html">Купить</a></li>
-        <li role="presentation"><a href="docs.html">Документация</a></li>
-        <li role="presentation"><a href="contacts.html">Контакты</a></li>
-    </ul>
-
     <!-- Jumbotron -->
-    <div class="jumbotron">
-        <h1>WhatsApp API</h1>
-        <p class="lead">Доступ к закрытому API WhatsApp<br> для отправки и приема сообщений</p>
+
+    <div class="row intro">
+        <div class="col-md-4">
+            <h3 class="intro__header">API для программистов</h3>
+            <p class="intro__p">
+                Сhat API создан для интеграции WhatsApp с бизнес-системами: CRM, ERP или сайтом.
+            </p>
+            <p class="intro__p">
+                Отправляйте сообщения с через HTTP запросы и принимайте через
+                Webhook. Подойдет любой язык программирования, например PHP, Python, C# или JavaScript.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3 class="intro__header">Работает на API WhatsApp WEB</h3>
+            <p class="intro__p">
+                Все сообщения отправляются с Вашего номера телефона. Можо подключить даже городской.
+            </p>
+            <p class="intro__p">
+                API не устареет и вы не получите бан как с библиотеками от mgp25 и WhatsAPI.
+            </p>
+            <p class="intro__p">
+                Вы можете пользоваться WhatsApp на телефоне, но не сможете WhatsApp WEB.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3 class="intro__header">Инструмент для бизнеса</h3>
+            <p class="intro__p">
+                Работающий бизнес-инструмент с помесячной оплатой. Обновляется вместе с WhatsApp. Не будет заброшен в
+                отличии от бесплатных библиотек.
+            </p>
+            <p class="intro__p">
+                В 900 рублей в месяц включены обновления и техническое обслуживание. API просто работает.
+            </p>
+        </div>
     </div>
-
-    <div class="row faq">
-        <div class="col-md-12">
-            <h2>Вопросы и ответы</h2>
-
-            <div class="faq__question">Как работает API?</div>
-            <div class="faq__answer">Сервис подключает Ваш аккаунт через закрытое API WhatsApp WEB. При этом не
-                возникнет
-                проблем с баном как в библиотеках от mgp25 и WhatsAPI.
-            </div>
-
-            <div class="faq__question">От чьего номера будут отправляться сообщения?</div>
-            <div class="faq__answer">
-                От вашего. И ответы будут приходить на ваш WhatsApp.
-            </div>
-
-            <div class="faq__question">Можно ли использовать WhatsApp на телефоне?</div>
-            <div class="faq__answer">
-                Да, можно. Вы только не сможете использовать WhatsApp WEB на компьютере.
-            </div>
-
-            <div class="faq__question">Можно ли рассылать спам?</div>
-            <div class="faq__answer">Нет. Сообщения на номера телефонов не из списка контактов
-                рассылать можно, но ваш аккаунт улетит в бан WhatsApp если вы получите 15-20 нажатий на кнопку "спам".
-            </div>
-
-            <div class="faq__question">Нужно ли платить за каждое сообщение?</div>
-            <div class="faq__answer">
-                Нет. За 900 рублей в месяц вы получаете полный доступ к API и техподдержке без
-                дополнительных плат.
-            </div>
-
-            <h3>Отправка сообщений</h3>
+    <div class="row delim"></div>
+    <div class="row example">
+        <div class="col-md-4">
+            <h3>Отправьте сообщение</h3>
             <p>
-                Отправить сообщение на любой номер телефона, подключенный к WhatsApp или в групповой чат.
+                На номер телефона, подключенный к WhatsApp или в групповой чат.
                 <br><a href="docs.html#post_message" target="docs">Документация</a>
             </p>
-
+        </div>
+        <div class="col-md-8">
             <!--<div class="changeLanguage"></div>-->
             <ul class="nav nav-pills">
                 <li class="active">
@@ -83,12 +98,13 @@
 
             <div class="tab-content clearfix">
                 <div class="tab-pane active" id="example_send_php">
-                    <pre><code class="language-php">$data = [
+                    <pre><code class="php">$data = [
     'phone' => '79995253422', // Телефон получателя
     'body' => 'Привет, Андрей!', // Сообщение
 ];
 $json = json_encode($data); // Закодируем данные в JSON
-$url = 'https://foo.chat-api.com/message?token=83763g87x'; // URL для запроса POST /message
+// URL для запроса POST /message
+$url = 'https://foo.chat-api.com/message?token=83763g87x';
 // Сформируем контекст обычного POST-запроса
 $options = stream_context_create(['http' => [
         'method'  => 'POST',
@@ -100,8 +116,9 @@ $options = stream_context_create(['http' => [
 $result = file_get_contents($url, false, $options);</code></pre>
                 </div>
                 <div class="tab-pane" id="example_send_node">
-                    <pre><code class="language-javascript">var request = require('request'); //npm install request
-var url = 'https://foo.chat-api.com/message?token=83763g87x'; // URL для запроса POST /message
+                    <pre><code class="javascript">var request = require('request'); //npm install request
+// URL для запроса POST /message
+var url = 'https://foo.chat-api.com/message?token=83763g87x';
 var data = {
     phone: '79995253422', // Телефон получателя
     body: 'Привет, Андрей!', // Сообщение
@@ -114,7 +131,8 @@ request({
 });</code></pre>
                 </div>
                 <div class="tab-pane" id="example_send_jquery">
-                    <pre><code class="language-javascript">var url = 'https://foo.chat-api.com/message?token=83763g87x'; // URL для запроса POST /message
+                    <pre><code class="javascript">// URL для запроса POST /message
+var url = 'https://foo.chat-api.com/message?token=83763g87x';
 var data = {
     phone: '79995253422', // Телефон получателя
     body: 'Привет, Андрей!', // Сообщение
@@ -127,12 +145,17 @@ $.ajax(url, {
 });</code></pre>
                 </div>
             </div>
-            <h3>Чтение истории сообщений</h3>
+        </div>
+    </div>
+    <div class="row example">
+        <div class="col-md-4">
+            <h3>Прочтите входящие</h3>
             <p>
-                История переписки в личных и групповых чатах в том числе до подключения API.
+                История переписки WhatsApp в личных и групповых чатах, в том числе до подключения API.
                 <br><a href="docs.html#get_messages" target="docs">Документация</a>
             </p>
-
+        </div>
+        <div class="col-md-8">
             <ul class="nav nav-pills">
                 <li class="active">
                     <a href="#example_get_messages_php" data-toggle="tab">PHP</a>
@@ -147,7 +170,8 @@ $.ajax(url, {
 
             <div class="tab-content clearfix">
                 <div class="tab-pane active" id="example_get_messages_php">
-                    <pre><code class="language-php">$url = 'https://foo.chat-api.com/messages?token=83763g87x'; // URL для запроса GET /messages
+                    <pre><code class="php">// URL для запроса GET /messages
+$url = 'https://foo.chat-api.com/messages?token=83763g87x';
 $result = file_get_contents($url); // Отправим запрос
 $data = json_decode($result, 1); // Разберем полученный JSON в массив
 foreach($data['messages'] as $message){ // Распечатаем каждое сообщение
@@ -156,7 +180,7 @@ foreach($data['messages'] as $message){ // Распечатаем каждое �
 }</code></pre>
                 </div>
                 <div class="tab-pane" id="example_get_messages_node">
-                    <pre><code class="language-javascript">var request = require('request');// npm install request
+                    <pre><code class="javascript">var request = require('request');// npm install request
 var url = 'https://foo.chat-api.com/messages?token=83763g87x';
 request(url, function (error, response, body) { // Выполним GET запрос на URL
     if (error) return console.error('HTTP Error', error);
@@ -170,7 +194,7 @@ request(url, function (error, response, body) { // Выполним GET запр
 });</code></pre>
                 </div>
                 <div class="tab-pane" id="example_get_messages_jquery">
-                    <pre><code class="language-javascript">var url = 'https://foo.chat-api.com/messages?token=83763g87x';
+                    <pre><code class="javascript">var url = 'https://foo.chat-api.com/messages?token=83763g87x';
 $.get(url, function (data) { // Выполним GET запрос на URL
     for (var i = 0; i < data.messages.length; i++) { // Для каждого сообщения
         var message = data.messages[i];
@@ -179,11 +203,17 @@ $.get(url, function (data) { // Выполним GET запрос на URL
 });</code></pre>
                 </div>
             </div>
-            <h3>Webhook уведомления о новых сообщениях</h3>
+        </div>
+    </div>
+    <div class="row example">
+        <div class="col-md-4">
+            <h3>Установите Webhook</h3>
             <p>
-                Получайте уведомления о личных и групповых сообщениях через входящие http запросы.
+                Получайте уведомления о личных и групповых сообщениях через входящие http запросы на ваш сервер.
                 <br><a href="docs.html#post_webhook" target="docs">Документация</a>
             </p>
+        </div>
+        <div class="col-md-8">
             <ul class="nav nav-pills">
                 <li class="active">
                     <a href="#example_post_webhook_php" data-toggle="tab">PHP</a>
@@ -194,7 +224,8 @@ $.get(url, function (data) { // Выполним GET запрос на URL
             </ul>
             <div class="tab-content clearfix">
                 <div class="tab-pane active" id="example_post_webhook_php">
-                    <pre><code class="language-php">// Сначала установите webhook согласно документации на http://ваш.сайт/incoming_message.php
+                    <pre><code class="php">// Сначала установите webhook согласно
+// документации например на http://ваш.сайт/incoming_message.php
 
 // Декодируем пришедший по webhook JSON
 $data = json_decode(file_get_contents('php://input'), true);
@@ -204,7 +235,9 @@ foreach($data['messages'] as $message){ // Распечатаем каждое �
 }</code></pre>
                 </div>
                 <div class="tab-pane" id="example_post_webhook_node">
-                    <pre><code class="language-javascript">// Сначала установите webhook согласно документации на http://ваш.сайт/got_whatsapp_messages
+                    <pre><code class="javascript">// Сначала установите webhook согласно
+// документации например на http://ваш.сайт/incoming_message.php
+
 // Подключим Express JS и Body Parser для того чтобы принять JSON POST
 var app = require('express')();
 var bodyParser = require('body-parser');
@@ -223,8 +256,12 @@ app.post('/got_whatsapp_messages', function (req, res) {
 app.listen(80);</code></pre>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row delim"></div>
+    <div class="row">
+        <div class="col-md-12">
             <h2>Цена и подключение</h2>
-            <p>Подключение нового аккаунта WhatsApp занимает 1 час.</p>
             <ol>
                 <li>Оплатите доступ к сервису или купите демо на 2 недели</li>
                 <li>Получите токен и API URL по email</li>
@@ -234,14 +271,11 @@ app.listen(80);</code></pre>
             <div class="row buy">
                 <div class="col-lg-6">
                     <a class="btn btn-primary" href="demo.html">Купить демо за 195 руб.</a>
-
-                    <br>Полный функционал на 2 недели
-                    <br>Если Вы не уверены что нужен WhatsApp API
+                    <br><br>Полный функционал на 2 недели
                 </div>
                 <div class="col-lg-6">
                     <a class="btn btn-primary" href="buy.html">Купить полную версию</a>
-                    <br>900 руб./месяц, техподдержка включена
-                    <br>Если вы уверены что вам нужен WhatsApp API
+                    <br><br>900 руб./месяц, техподдержка и обновления включены
                 </div>
             </div>
             <p>
@@ -261,14 +295,15 @@ app.listen(80);</code></pre>
     <!-- Site footer -->
     <footer class="footer">
         <p></p>
-        <p>API шлюз интеграции WhatsApp, ватсап, воцап, вотсапп и вацап. Аналоги: mgp25 chat api и yowsup.<br/>&copy; chat-api.com 2017</p>
+        <p>API шлюз интеграции WhatsApp, ватсап, воцап, вотсапп и вацап. Аналоги: mgp25 chat api и yowsup.<br/>&copy;
+            chat-api.com 2017</p>
     </footer>
 
 </div> <!-- /container -->
 
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!--<script src="/lib/prism/prism.js"></script>-->
+<script src="/lib/highlight/highlight.pack.js"></script>
 <script src="/js/main.js?v=4"></script>
 </body>
 </html>

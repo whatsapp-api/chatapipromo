@@ -1,10 +1,40 @@
+@import "yeti-bootstrap.css";
+
 .jumbotron {
     text-align: center;
-    background-color: transparent;
+    background-color: #3e444c;
 }
 
-.container {
-    width: 95%;
+body {
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.delim {
+    height: 1px;
+    border: none;
+    border-bottom: 1px solid #ececec;
+    margin-top: 45px;
+    margin-bottom: 33px;
+}
+
+.example {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.jumbotron h1 {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.lead {
+    color: #fff
 }
 
 .faq__question {
@@ -19,34 +49,20 @@
 }
 
 h2 {
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
 h3 {
-    margin-top: 20px;
     margin-bottom: 20px;
 
 }
 
-.changeLanguage{
-    width: 150px;
-    height: 150px;
-    background-image: url(/img/20170831_233230.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    float: left;
-    margin-left: -160px;
-    margin-top: -109px;
-    display: none;
+pre {
+    border: none;
+    padding: 0;
 }
 
-@media (min-width: 992px) {
-    .container {
-        width: 780px;
-    }
-    .changeLanguage{
-        /*display: block;*/
-    }
+.intro__header {
+    color: #6d6d6d;
+    font-size: 20px;
 }
