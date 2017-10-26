@@ -1,4 +1,6 @@
 @import "yeti-bootstrap.css";
+/*@import "/lib/highlight/styles/monokai-sublime.css";*/
+@import "/lib/highlight/styles/agate.css";
 
 .jumbotron {
     text-align: center;
@@ -18,6 +20,10 @@ body {
     margin-bottom: 33px;
 }
 
+table{
+    font-size: inherit;
+}
+
 .example {
     padding-top: 25px;
     padding-bottom: 25px;
@@ -25,6 +31,9 @@ body {
 
 .navbar {
     margin-bottom: 0;
+}
+h2{
+    font-size: 26px;
 }
 
 .jumbotron h1 {
@@ -56,7 +65,9 @@ h3 {
     margin-bottom: 20px;
 
 }
-
+.example h3{
+    margin-top:0;
+}
 pre {
     border: none;
     padding: 0;
