@@ -5,8 +5,8 @@
     <title>Detect language</title>
     <script>
         var language = navigator.language || navigator.browserLanguage; //for IE
-
-        if (language.slice(0, 2) === 'ru') {
+        var code = language.slice(0, 2).toUpperCase();
+        if (code === 'RU'||code === 'UK'||code === 'UZ'||code === 'TK'||code === 'TT'||code === 'KV') {
             location.href = '/ru/';
         } else {
             location.href = '/en/';
