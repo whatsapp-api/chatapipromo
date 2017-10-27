@@ -2,11 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <meta http-equiv="refresh" content="0; url=/ru/" />
+    <title>Detect language</title>
+    <script>
+        var language = navigator.language || navigator.browserLanguage; //for IE
+
+        if (language.slice(0, 2) === 'ru') {
+            location.href = '/ru/';
+        } else {
+            location.href = '/en/';
+        }
+    </script>
 </head>
 <body>
-<p><a href="/ru/">Redirect</a></p>
+<p><a href="/ru/">Русский</a></p>
+<p><a href="/en/">English</a></p>
 <script src="/js/main.js?v=6"></script>
 </body>
 </html>

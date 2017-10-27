@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WhatsApp API gateway for sending messages, marketing campaigns and bots for PHP, JavaScript and Python</title>
+    <link rel="stylesheet" href="/css/main.css?v=6">
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+    <link rel="alternate" hreflang="ru" href="https://chat-api.com/ru/" />
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./">Chat API</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="./">WhatsApp API</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="buy.html">Buy</a></li>
+                <!--<li><a href="docs.html">Docs</a></li>-->
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="jumbotron">
+    <h1>WhatsApp API</h1>
+    <p class="lead">For integration with WhatsApp. Receiving and sending messages.</p>
+</div>
+<div class="container">
+    <!-- Jumbotron -->
+
+    <div class="row intro">
+        <div class="col-md-4">
+            <h3 class="intro__header">API for developers</h3>
+            <p class="intro__p">
+                The What API is designed to integrate WhatsApp with business systems: CRM, ERP or a website.
+            </p>
+            <p class="intro__p">
+                Send messages via HTTP requests and receive it throughb Webhook. Any programming language, such as PHP,
+                Python, C # or JavaScript, is suitable.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3 class="intro__header">Based on API WhatsApp WEB</h3>
+            <p class="intro__p">
+                All messages are sent from your phone number. You can connect even a landline phone.
+            </p>
+            <p class="intro__p">
+                The API will not become deprecated and you will not get banned as with open source integrations like mgp25 and WhatsAPI.
+            </p>
+            <p class="intro__p">
+                You will be able to use WhatsApp on your phone, but you will not be able to WhatsApp WEB.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3 class="intro__header">Tool for business</h3>
+            <p class="intro__p">
+                A working business tool. Updated with WhatsApp. Will not be abandoned in differences from free libraries.
+            </p>
+            <p class="intro__p">
+                The subscription fee includes updates, unlimited messages and maintenance.
+            </p>
+            <p class="intro__p">
+                The API just works.
+            </p>
+        </div>
+    </div>
+    <div class="row delim"></div>
+    <div class="row example">
+        <div class="col-md-4">
+            <h3>Send message</h3>
+            <p>
+                To a phone number connected to WhatsApp or to a group chat.
+                <br><br><a href="docs.html#post_message" target="docs">Docs</a>
+            </p>
+        </div>
+        <div class="col-md-8">
+            <!--<div class="changeLanguage"></div>-->
+            <ul class="nav nav-pills">
+                <li class="active">
+                    <a href="#example_send_php" data-toggle="tab">PHP</a>
+                </li>
+                <li>
+                    <a href="#example_send_node" data-toggle="tab">Node.js</a>
+                </li>
+                <li>
+                    <a href="#example_send_jquery" data-toggle="tab">JQuery</a>
+                </li>
+            </ul>
+
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="example_send_php">
+                    <pre><code class="php">$data = [
+    'phone' => '79995253422', // Receivers phone
+    'body' => 'Hello, Andrew!', // Message
+];
+$json = json_encode($data); // Encode data to JSON
+// URL for request POST /message
+$url = 'https://foo.chat-api.com/message?token=83763g87x';
+// Make a POST request
+$options = stream_context_create(['http' => [
+        'method'  => 'POST',
+        'header'  => 'Content-type: application/json',
+        'content' => $json
+    ]
+]);
+// Send a request
+$result = file_get_contents($url, false, $options);</code></pre>
+                </div>
+                <div class="tab-pane" id="example_send_node">
+                    <pre><code class="javascript">var request = require('request'); //bash: npm install request
+// URL for request POST /message
+var url = 'https://foo.chat-api.com/message?token=83763g87x';
+var data = {
+    phone: '79995253422', // Receivers phone
+    body: 'Hello, Andrew!', // Сообщение
+};
+// Send a request
+request({
+    url: url,
+    method: "POST",
+    json: data
+});</code></pre>
+                </div>
+                <div class="tab-pane" id="example_send_jquery">
+                    <pre><code class="javascript">// URL for request POST /message
+var url = 'https://foo.chat-api.com/message?token=83763g87x';
+var data = {
+    phone: '79995253422', // Receivers phone
+    body: 'Hello, Andrew!', // Message
+};
+// Send a request
+$.ajax(url, {
+    data : JSON.stringify(data),
+    contentType : 'application/json',
+    type : 'POST'
+});</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row example">
+        <div class="col-md-4">
+            <h3>Read WhatsApp inbox</h3>
+            <p>
+                The history of WhatsApp conversations in personal and group chats, even before connecting the API.
+                <br><br><a href="docs.html#get_messages" target="docs">Docs</a>
+            </p>
+        </div>
+        <div class="col-md-8">
+            <ul class="nav nav-pills">
+                <li class="active">
+                    <a href="#example_get_messages_php" data-toggle="tab">PHP</a>
+                </li>
+                <li>
+                    <a href="#example_get_messages_node" data-toggle="tab">Node.js</a>
+                </li>
+                <li>
+                    <a href="#example_get_messages_jquery" data-toggle="tab">JQuery</a>
+                </li>
+            </ul>
+
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="example_get_messages_php">
+                    <pre><code class="php">// URL for request GET /messages
+$url = 'https://foo.chat-api.com/messages?token=83763g87x';
+$result = file_get_contents($url); // Send a request
+$data = json_decode($result, 1); // Parse JSON
+foreach($data['messages'] as $message){ // Echo every message
+    echo "Отправитель:".$message['author']."&ltbr>";
+    echo "Сообщение: ".$message['body']."&ltbr>";
+}</code></pre>
+                </div>
+                <div class="tab-pane" id="example_get_messages_node">
+                    <pre><code class="javascript">var request = require('request');// npm install request
+var url = 'https://foo.chat-api.com/messages?token=83763g87x';
+request(url, function (error, response, body) { // Make a GET request
+    if (error) return console.error('HTTP Error', error);
+    // Parse a response
+    var data = JSON.parse(body);
+    // For each message
+    for (var i = 0; i < data.messages.length; i++) {
+        var message = data.messages[i];
+        console.log(message.author + ': ' + message.body); //Send it to console
+    }
+});</code></pre>
+                </div>
+                <div class="tab-pane" id="example_get_messages_jquery">
+                    <pre><code class="javascript">var url = 'https://foo.chat-api.com/messages?token=83763g87x';
+$.get(url, function (data) { // Make a GET request
+    for (var i = 0; i < data.messages.length; i++) { // For each message
+        var message = data.messages[i];
+        console.log(message.author + ': ' + message.body); //Send it to console
+    }
+});</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row example">
+        <div class="col-md-4">
+            <h3>Set a Webhook</h3>
+            <p>
+                Receive notifications about personal and group messages through incoming HTTP requests to your server.
+                <br><br><a href="docs.html#post_webhook" target="docs">Docs</a>
+            </p>
+        </div>
+        <div class="col-md-8">
+            <ul class="nav nav-pills">
+                <li class="active">
+                    <a href="#example_post_webhook_php" data-toggle="tab">PHP</a>
+                </li>
+                <li>
+                    <a href="#example_post_webhook_node" data-toggle="tab">Node.js</a>
+                </li>
+            </ul>
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="example_post_webhook_php">
+                    <pre><code class="php">// First of all - set a webhook to URL like http://your_website.com/my_webhook_url.php
+
+// Parse a webhook data
+$data = json_decode(file_get_contents('php://input'), true);
+foreach($data['messages'] as $message){ // Echo every message
+    // Handle every message here
+    // Add to the database or generate a response
+}</code></pre>
+                </div>
+                <div class="tab-pane" id="example_post_webhook_node">
+                    <pre><code class="javascript">// First of all - set a webhook to URL like http://your_website.com/my_webhook_url
+
+// Require Express JS и Body Parser for JSON POST acceptance
+var app = require('express')();
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+// Handle POST request
+app.post('/my_webhook_url', function (req, res) {
+	var data = req.body; // New messages in the "body" variable
+    for (var i = 0; i < data.messages.length; i++) { // For each message
+        var message = data.messages[i];
+        console.log(message.author + ': ' + message.body); //Send it to console
+    }
+    res.send('Ok'); //Response does not matter
+});
+
+app.listen(80);</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row delim"></div>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-12">
+            <h2>Getting started</h2>
+            <ol>
+                <li>Buy a demo for 2 weeks</li>
+                <li>Get a token and API URL by email</li>
+                <li>Log in via QR-code from the email</li>
+                <li>Send and receive WhatsApp messages as in the examples above</li>
+            </ol>
+            <div class="row buy">
+                <div class="col-lg-6">
+                    <a class="btn btn-primary" href="demo.html">Buy a demo for $5.</a>
+                    <br><br>Fully functional API for 2 weeks<br><br>
+                </div>
+                <div class="col-lg-6">
+                    <a class="btn btn-primary" href="buy.html">Buy a full version</a>
+                    <br><br>$25 per month, maintenance and updates included<br><br>
+                </div>
+            </div>
+            <p>
+                If you need more than 5 accounts, then for you absolutely different prices. Write to the mail
+                <a href="mailto:sale@chat-api.com" target="_blank">sale@chat-api.com</a>.
+            </p>
+        </div>
+    </div>
+
+    <!-- Site footer -->
+    <footer class="footer">
+        <p></p>
+        <p>API gateway for WhatsApp integration. Analogs: mgp25 chat api and yowsup.<br/>&copy;
+            chat-api.com 2017</p>
+    </footer>
+
+</div> <!-- /container -->
+
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/lib/highlight/highlight.pack.js"></script>
+<script src="/js/main.js?v=6"></script>
+</body>
+</html>
