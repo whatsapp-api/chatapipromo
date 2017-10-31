@@ -110,6 +110,9 @@
                 <li>
                     <a href="#example_send_jquery" data-toggle="tab">JQuery</a>
                 </li>
+                <li>
+                    <a href="#example_send_curl" data-toggle="tab">Curl (Bash)</a>
+                </li>
             </ul>
 
             <div class="tab-content clearfix">
@@ -160,6 +163,13 @@ $.ajax(url, {
     type : 'POST'
 });</code></pre>
                 </div>
+                <div class="tab-pane" id="example_send_curl">
+                    <pre><code class="bash">curl \
+    -d '{"phone": "79995253422","body": "Привет, Андрей!"}' \ # Телефон и сообщение
+    -H "Content-Type: application/json" \ # Заголовок JSON
+    -X POST \ # Тип запроса - POST
+    "https://foo.chat-api.com/message?token=83763g87x" # URL для запроса POST /message</code></pre>
+                </div>
             </div>
         </div>
     </div>
@@ -181,6 +191,9 @@ $.ajax(url, {
                 </li>
                 <li>
                     <a href="#example_get_messages_jquery" data-toggle="tab">JQuery</a>
+                </li>
+                <li>
+                    <a href="#example_get_messages_curl" data-toggle="tab">Curl (Bash)</a>
                 </li>
             </ul>
 
@@ -217,6 +230,10 @@ $.get(url, function (data) { // Выполним GET запрос на URL
         console.log(message.author + ': ' + message.body); //Выведем его в консоль
     }
 });</code></pre>
+                </div>
+                <div class="tab-pane" id="example_get_messages_curl">
+                    <pre><code class="bash"># Всего лишь GET запрос
+curl "https://foo.chat-api.com/message?token=83763g87x"</code></pre>
                 </div>
             </div>
         </div>
