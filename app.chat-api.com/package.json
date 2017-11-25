@@ -33,8 +33,10 @@
   "dependencies": {
     "bootstrap": "4.0.0-beta.2",
     "chart.js": "2.7.0",
+    "firebase": "^4.6.2",
     "font-awesome": "^4.7.0",
     "history": "4.7.2",
+    "i18n-react": "^0.6.3",
     "react": "^16.0.0",
     "react-chartjs-2": "2.6.4",
     "react-dom": "^16.0.0",
