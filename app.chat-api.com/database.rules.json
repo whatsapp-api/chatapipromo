@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".indexOn": "usedBy",
+        ".write": "false",
+        ".read": "auth != null && auth.uid == $uid",
+        "editable": {
+          ".write": "auth != null && auth.uid == $uid"
+        }
+      }
+    }
+  }
+}

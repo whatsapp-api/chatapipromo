@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {Container, Row, Col, CardGroup, Card, CardBody, Button, Input, InputGroup, InputGroupAddon} from 'reactstrap';
 import T from 'i18n-react';
+import auth from '../../../database/auth';
 
 class Login extends Component {
-    render() {
+   render() {
         return (
             <div className="app flex-row align-items-center">
                 <Container>
@@ -16,7 +17,7 @@ class Login extends Component {
                                         <p className="text-muted"><T.span text={{key: "onlyGoogle"}}/></p>
                                         <Row>
                                             <Col xs="4">
-                                                <Button color="primary" className="px-4">
+                                                <Button color="primary" className="px-4" onClick={()=>auth.providerSignIn()}>
                                                     <T.span text={{key: "loginWithGoogle"}}/>
                                                 </Button>
                                             </Col>

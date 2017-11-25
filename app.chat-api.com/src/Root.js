@@ -18,7 +18,9 @@ class Root extends Component {
     }
 
     componentDidMount() {
-        auth.onAuthChange(user => this.setState({user, loading: false}));
+        auth.onAuthChange(user => {
+            this.setState({user, loading: false});
+        });
     }
 
     render() {

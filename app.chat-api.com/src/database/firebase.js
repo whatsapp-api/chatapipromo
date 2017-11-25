@@ -12,4 +12,6 @@ const app = firebase.initializeApp({
     messagingSenderId: "201786676012"
 });
 
+window.firebaseDebug = app;
+
 export default app;

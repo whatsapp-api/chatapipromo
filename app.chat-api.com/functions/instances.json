@@ -1,0 +1,26 @@
+{
+  "150": {
+    "id": "150",
+    "token": "7q575eudcwm",
+    "apiUrl": "https://eu1.whatsapp.chat-api.com/instance150/",
+    "usedBy": null
+  },
+  "151": {
+    "id": "151",
+    "token": "82eqcgey2kp",
+    "apiUrl": "https://eu1.whatsapp.chat-api.com/instance151/",
+    "usedBy": null
+  },
+  "152": {
+    "id": "152",
+    "token": "s76w7b5feud",
+    "apiUrl": "https://eu1.whatsapp.chat-api.com/instance152/",
+    "usedBy": null
+  },
+  "153": {
+    "id": "153",
+    "token": "775cbjn2tj3",
+    "apiUrl": "https://eu1.whatsapp.chat-api.com/instance153/",
+    "usedBy": null
+  }
+}
