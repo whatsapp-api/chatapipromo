@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import T from 'i18n-react';
-
+import './database/init';
+//
 import RU from './texts/RU';
 import Root from './Root';
 // Import Font Awesome Icons Set

@@ -1,0 +1,6 @@
+{
+  "name": "Instance",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Instance.js"
+}

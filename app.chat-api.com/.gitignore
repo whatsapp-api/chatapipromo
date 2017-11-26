@@ -2,3 +2,4 @@ node_modules
 compilation-stats.json
 package-lock.json
 build/
+yarn-error.log

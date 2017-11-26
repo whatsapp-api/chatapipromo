@@ -1,9 +1,8 @@
 //libs
-//modules
-import firebaseInstance from './firebase';
 import * as firebase from 'firebase';
+//modules
 //init
-let authCallbacks = [];
+const authCallbacks = [];
 
 const onAuthChange = function (callback) {
     authCallbacks.push(callback);

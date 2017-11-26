@@ -9,6 +9,7 @@ import Footer from '../../components/Footer/';
 import Dashboard from '../../views/Dashboard/';
 import Charts from '../../views/Charts/';
 import Widgets from '../../views/Widgets/';
+import Instance from '../../views/Instance/';
 
 // Components
 import Buttons from '../../views/Components/Buttons/';
@@ -32,7 +33,7 @@ class Full extends Component {
         <div className="app-body">
           <Sidebar {...this.props}/>
           <main className="main">
-            <Breadcrumb />
+            {/*<Breadcrumb />*/}
             <Container fluid>
               <Switch>
                 <Route path="/dashboard" name="Dashboard" component={Dashboard}/>
@@ -47,6 +48,7 @@ class Full extends Component {
                 <Route path="/icons/font-awesome" name="Font Awesome" component={FontAwesome}/>
                 <Route path="/icons/simple-line-icons" name="Simple Line Icons" component={SimpleLineIcons}/>
                 <Route path="/widgets" name="Widgets" component={Widgets}/>
+                <Route path="/instance/:id" name="Instance" component={Instance}/>
                 <Route path="/charts" name="Charts" component={Charts}/>
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
