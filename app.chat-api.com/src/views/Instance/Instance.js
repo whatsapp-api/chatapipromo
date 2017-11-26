@@ -111,22 +111,18 @@ class Widgets extends Component {
 
         return (
             <div className="animated fadeIn padTop">
-                <Row>
-                    <Col>
-                        {accountStatus === 'got qr code' &&
-                        <ScanQR qrCode={qrCode} instanceId={instance.id}/>
-                        }
-                        {accountStatus === 'unknown' &&
-                        this.cardMessage('Загрузка информации с сервера')
-                        }
-                        {accountStatus === 'loading' &&
-                        this.cardMessage('Ваш аккаунт WhatsApp в процессе загрузки и будет готов через 2 минуты. Обновите страницу.')
-                        }
-                        {accountStatus === 'authenticated' &&
-                        <Playground apiUrl={instance.apiUrl} token={instance.token} instanceId={instance.id}/>
-                        }
-                    </Col>
-                </Row>
+                {accountStatus === 'got qr code' &&
+                <ScanQR qrCode={qrCode} instanceId={instance.id}/>
+                }
+                {accountStatus === 'unknown' &&
+                this.cardMessage('Загрузка информации с сервера')
+                }
+                {accountStatus === 'loading' &&
+                this.cardMessage('Ваш аккаунт WhatsApp в процессе загрузки и будет готов через 2 минуты. Обновите страницу.')
+                }
+                {accountStatus === 'authenticated' &&
+                <Playground apiUrl={instance.apiUrl} token={instance.token} instanceId={instance.id}/>
+                }
                 <Row>
                     <Col sm="12" md="6">
                         <pre>{JSON.stringify(this.props, null, 2)}</pre>

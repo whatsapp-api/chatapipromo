@@ -7,10 +7,10 @@ export default {
     apiGateways: "Аккаунты API",
     loading: "Загрузка...",
     accountStatus: {
-        'loading':'Инициализация. Обновите страницу.',
-        'got qr code':'Просканируйте QR-код',
-        'authenticated':'Авторизован',
-        'unknown':'Загрузка',
+        'loading': 'Инициализация. Обновите страницу.',
+        'got qr code': 'Просканируйте QR-код',
+        'authenticated': 'Авторизован',
+        'unknown': 'Загрузка',
     },
     instanceCard: {
         authStatus: 'Статус авторизации',
@@ -24,5 +24,23 @@ export default {
 3. Просканируйте код и держите телефон подключенным к интернету
 
 Код можно сканировать в течении 1 минуты после загрузки. Отправка сообщений будет доступна сразу после авторизации.`,
+    },
+    playground: {
+        whatsNext: 'Вы успешно прошли авторизацию. Теперь попробуйте отправить сообщение и прочитать историю.',
+        sendMessageExample: 'Пример отправки сообщения',
+        getMessagesExample: 'Пример чтения истории сообщений',
+        receiver: 'Получатель в формате 79681234567',
+        text: 'Текст сообщения',
+        dummyText: 'WhatsApp API работает',
+        send: 'Отправить',
+        requestToSend: 'Будет отправлен запрос',
+        gotResponse: 'Получили ответ от сервера',
+        checkOnPhone: 'Сообщение отправлено. Откройте WhatsApp на телефоне и проверьте последний диалог.',
+        getMessagesExplain: 'Получите сообщения в формате JSON простыми GET-запросами. Сообщения появляются через 5 минут после авторизации.',
+        fromZero: '100 первых сообщений',
+        fromTen: '100 сообщений, начиная с 10го',
+        moreInDocs: 'Подробнее в документации',
+        getMessagesDocs: 'https://chat-api.com/ru/docs.html#get_messages',
+        sendMessagesDocs: 'https://chat-api.com/ru/docs.html#post_message',
     }
 }
