@@ -51,7 +51,8 @@
     "dev": "webpack -d --progress --watch --profile --json > compilation-stats.json --env.dev",
     "start": "webpack-dev-server --progress --colors --inline --env.dev",
     "build": "webpack -p --progress --env.prod",
-    "clean": "rimraf ./build"
+    "clean": "rimraf ./build",
+    "deploy-functions": "firebase deploy --only=functions"
   },
   "engines": {
     "node": ">= 6.0.0",

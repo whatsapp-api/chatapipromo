@@ -4,12 +4,17 @@ import * as firebase from 'firebase';
 //modules
 import auth from './auth';
 //init
-const changeCallbacks = [];
+let changeCallbacks = [];
 let instancesObject = {};
 
 const onChange = callback => {
     changeCallbacks.push(callback);
     triggerChanged(changeCallbacks);
+};
+const removeOnChange = callback => {
+    console.log('removeOnChange before', changeCallbacks.length);
+    changeCallbacks = changeCallbacks.filter(cb => cb !== callback);
+    console.log('removeOnChange after', changeCallbacks.length);
 };
 
 const triggerChanged = function () {
@@ -27,5 +32,5 @@ auth.onAuthChange(function (user) {
     ref.once('value');
 });
 
-export default {onChange};
+export default {onChange, removeOnChange};
 

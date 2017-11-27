@@ -5,6 +5,7 @@ export default {
     register: "Регистрация",
     loginWithGoogle: "Войти через Google",
     apiGateways: "Аккаунты API",
+    payment: "Оплата",
     loading: "Загрузка...",
     accountStatus: {
         'loading': 'Инициализация. Обновите страницу.',
@@ -13,6 +14,9 @@ export default {
         'unknown': 'Загрузка',
     },
     instanceCard: {
+        statusLoading: "Ваш аккаунт WhatsApp в процессе загрузки и будет готов через 2 минуты. Обновите страницу.",
+        loadingServer: "Загрузка информации с сервера...",
+        loadingInstances: "Загрузка списка аккаунтов...",
         authStatus: 'Статус авторизации',
         needAuth: 'Авторизуйте аккаунт',
         scanIt: 'Это изображение нужно просканировать',
@@ -26,7 +30,7 @@ export default {
 Код можно сканировать в течении 1 минуты после загрузки. Отправка сообщений будет доступна сразу после авторизации.`,
     },
     playground: {
-        whatsNext: 'Вы успешно прошли авторизацию. Теперь попробуйте отправить сообщение и прочитать историю.',
+        whatsNext: 'Вы успешно прошли авторизацию.\nТеперь попробуйте отправить сообщение и прочитать историю.',
         sendMessageExample: 'Пример отправки сообщения',
         getMessagesExample: 'Пример чтения истории сообщений',
         receiver: 'Получатель в формате 79681234567',
@@ -42,5 +46,8 @@ export default {
         moreInDocs: 'Подробнее в документации',
         getMessagesDocs: 'https://chat-api.com/ru/docs.html#get_messages',
         sendMessagesDocs: 'https://chat-api.com/ru/docs.html#post_message',
+        paySoon: 'Ваш аккаунт оплачен на {context.paidTillDays} дн. до {context.paidTillDate}.',
+        payFuckUp: 'Ваш аккаунт просрочен на {context.fuckUpDays} дн. (до {context.paidTillDate}) и скоро будет удален.',
+        payMore: 'Продлить оплату',
     }
 }

@@ -10,7 +10,7 @@ import instanceAPI from '../../database/instanceAPI';
 
 const MAX_INVALIDATIONS = 20;
 
-class Widgets extends Component {
+class Instance extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,12 +22,16 @@ class Widgets extends Component {
     }
 
     componentDidMount() {
+        const self = this;
+        console.debug('DEBUG: Instance.componentDidMount');
         instanceList.onChange(instanceObject => {
-            this.setState({
+            console.debug(`DEBUG: componentDidMount onchange callback `, instanceObject);
+            self.setState({
                 instances: instanceObject,
+            }, () => {
+                self.loadData(this.props.match.params.id);
+                self.loadStatuses();
             });
-            this.loadData(this.props.match.params.id);
-            this.loadStatuses();
         });
     }
 
@@ -41,8 +45,13 @@ class Widgets extends Component {
     }
 
     loadStatus({apiUrl, token, id}) {
+        console.log('Loading status for ' + apiUrl);
+        if (this.state.instanceStatuses && this.state.instanceStatuses[id] && this.state.instanceStatuses[id].qrCode) {
+            delete  this.state.instanceStatuses[id].qrCode;
+            this.setState({instanceStatuses: this.state.instanceStatuses});
+        }
+
         return instanceAPI.getStatus({apiUrl, token, useCache: false}).then(status => {
-            console.log('Loading status for ' + apiUrl);
             const addState = {};
             addState[id] = status;
             const instanceStatuses = Object.assign({}, this.state.instanceStatuses, addState);
@@ -55,7 +64,7 @@ class Widgets extends Component {
     startQRInvalidation() {
         const state = this.state;
         const self = this;
-        console.log('DEBUG', 'this.state.QRCodesInvalidated', state.QRCodesInvalidated);
+
         if (state.QRCodesInvalidated > MAX_INVALIDATIONS) {
             return;
         }
@@ -63,19 +72,20 @@ class Widgets extends Component {
 
         setTimeout(() => {
             self.startQRInvalidation();
-            console.log('DEBUG', 'state.instance', state.instance);
 
             if (!state.instance) return;
 
             const accountStatus = (state.instanceStatuses[state.instance.id] || {}).accountStatus;
-            console.log('DEBUG', 'accountStatus', accountStatus);
+
             if (accountStatus !== 'loading' && accountStatus !== 'got qr code') return;
             const {apiUrl, token, id} = state.instance;
             this.loadStatus({apiUrl, token, id});
+            console.log('QR code invalidation for #' + id);
         }, 30000);
     }
 
     loadData(id) {
+        console.debug(`DEBUG: this.loadData(${id}) `, this.state);
         this.setState({
             instance: this.state.instances[id] || null,
         })
@@ -99,7 +109,7 @@ class Widgets extends Component {
         const {instance} = this.state;
         if (!instance) {
             return <div className="animated fadeIn padTop">
-                {T.translate('loading')}
+                {T.translate('instanceCard.loadingInstances')}
             </div>
         }
 
@@ -115,13 +125,14 @@ class Widgets extends Component {
                 <ScanQR qrCode={qrCode} instanceId={instance.id}/>
                 }
                 {accountStatus === 'unknown' &&
-                this.cardMessage('Загрузка информации с сервера')
+                this.cardMessage(T.translate('instanceCard.loadingServer'))
                 }
                 {accountStatus === 'loading' &&
-                this.cardMessage('Ваш аккаунт WhatsApp в процессе загрузки и будет готов через 2 минуты. Обновите страницу.')
+                this.cardMessage(T.translate('instanceCard.statusLoading'))
                 }
                 {accountStatus === 'authenticated' &&
-                <Playground apiUrl={instance.apiUrl} token={instance.token} instanceId={instance.id}/>
+                <Playground apiUrl={instance.apiUrl} token={instance.token} instanceId={instance.id}
+                            paidTill={instance.paidTill}/>
                 }
                 <Row>
                     <Col sm="12" md="6">
@@ -136,4 +147,4 @@ class Widgets extends Component {
     }
 }
 
-export default Widgets;
+export default Instance;

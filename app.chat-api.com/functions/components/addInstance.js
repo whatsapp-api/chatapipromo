@@ -4,6 +4,7 @@ const admin = require('firebase-admin');
 //modules
 const getAvailableInstances = require('./getAvailableInstances');
 const sendTelegramNotification = require('./sendTelegramNotification');
+const setPaidDate = require('./setPaidDate');
 //init
 module.exports = function (uid, days = 30) {
     let instance;
@@ -24,9 +25,13 @@ module.exports = function (uid, days = 30) {
             } else {
                 text += 'Последний инстанс был использован!!!11!11!';
             }
+
+            const paidTill = +new Date(+new Date + 1000 * 60 * 60 * 24 * days);
+
             promises.push(sendTelegramNotification(text));
             promises.push(admin.database().ref(`/instances/${instance.id}/usedBy`).set(uid));
             promises.push(admin.database().ref(`/users/${uid}/instances/${instance.id}`).set(instance));
+            promises.push(setPaidDate({instanceId: instance.id, paidTill}));
 
             return Promise.all(promises);
         }
