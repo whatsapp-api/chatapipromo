@@ -1,7 +1,7 @@
 "use strict";
 //libs
 //modules
-const addInstance = require('./components/addInstance');
+const addInstance = require('./addInstance');
 //init
 const DEMO_LENGTH_DAYS = 2;
 
